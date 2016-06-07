@@ -1,0 +1,42 @@
+umask 0002
+
+[global]
+
+daemonize = no
+
+events.mechanism = epoll
+
+[www]
+
+user = www-data
+group = www-data
+
+listen = [::]:9000
+
+listen.owner = www-data
+listen.group = www-data
+listen.mode = 0660
+
+pm = ondemand
+pm.max_children = 75
+pm.start_servers = 10
+pm.min_spare_servers = 5
+pm.max_spare_servers = 20
+pm.process_idle_timeout = 10s;
+pm.max_requests = 500
+
+; pm = dynamic
+; pm.max_children = 5
+; pm.start_servers = 2
+; pm.min_spare_servers = 1
+; pm.max_spare_servers = 3
+
+chdir = /
+
+clear_env = no
+
+; Ensure worker stdout and stderr are sent to the main error log.
+catch_workers_output = yes
+
+; for debugging 1h
+request_terminate_timeout = 3600
