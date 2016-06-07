@@ -8,7 +8,7 @@ COPY config/usr/local/etc/php /usr/local/etc/php
 RUN apt-get update
 RUN apt-get -y install unzip
 RUN apt-get -y install wget
-RUN apt-get -y installlibicu-dev
+RUN apt-get -y install libicu-dev
 RUN apt-get -y install libpcre3-dev
 RUN apt-get -y install libmcrypt-dev
 RUN apt-get -y install libfreetype6-dev
@@ -31,6 +31,7 @@ RUN docker-php-ext-configure opcache --enable-opcache
 RUN docker-php-ext-install ctwig
 RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install gd
+RUN docker-php-ext-install intl
 RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install mcrypt
 RUN docker-php-ext-install mysqli
