@@ -28,7 +28,6 @@ RUN docker-php-ext-configure mbstring --enable-mbstrin
 RUN docker-php-ext-configure pcntl --enable-pcntl
 RUN docker-php-ext-configure opcache --enable-opcache
 
-RUN docker-php-ext-install ctwig
 RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install gd
 RUN docker-php-ext-install intl
