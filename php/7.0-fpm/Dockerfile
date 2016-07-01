@@ -15,6 +15,7 @@ RUN apt-get -y install libfreetype6-dev
 RUN apt-get -y install libjpeg62-turbo-dev
 RUN apt-get -y install libjpeg-dev
 RUN apt-get -y install libpng12-dev
+RUN apt-get -y install libpq-dev
 RUN apt-get -y install locales
 RUN apt-get -y install pngquant
 RUN apt-get -y install tzdata
@@ -26,6 +27,7 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr
 RUN docker-php-ext-configure intl --enable-intl
 RUN docker-php-ext-configure mbstring --enable-mbstrin
 RUN docker-php-ext-configure pcntl --enable-pcntl
+RUN docker-php-ext-configure zip --enable-zip
 
 RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install gd
@@ -34,6 +36,7 @@ RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install mcrypt
 RUN docker-php-ext-install mysqli
 RUN docker-php-ext-install pcntl
+RUN docker-php-ext-install zip
 
 RUN wget http://static.jonof.id.au/dl/kenutils/pngout-20130221-linux.tar.gz \
     && tar xvf pngout-20130221-linux.tar.gz \

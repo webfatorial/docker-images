@@ -1,9 +1,6 @@
-FROM php:7.0-fpm
+FROM php:7.0
 
 MAINTAINER webfatorial <webfatorial@webfatorial.com>
-
-COPY config/usr/local/etc/ /usr/local/etc/
-COPY config/usr/local/etc/php /usr/local/etc/php
 
 RUN apt-get update
 RUN apt-get -y install unzip
@@ -14,8 +11,8 @@ RUN apt-get -y install libmcrypt-dev
 RUN apt-get -y install libfreetype6-dev
 RUN apt-get -y install libjpeg62-turbo-dev
 RUN apt-get -y install libjpeg-dev
-RUN apt-get -y install libpng12-dev
 RUN apt-get -y install libpq-dev
+RUN apt-get -y install libpng12-dev
 RUN apt-get -y install locales
 RUN apt-get -y install pngquant
 RUN apt-get -y install tzdata
@@ -27,7 +24,6 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr
 RUN docker-php-ext-configure intl --enable-intl
 RUN docker-php-ext-configure mbstring --enable-mbstrin
 RUN docker-php-ext-configure pcntl --enable-pcntl
-RUN docker-php-ext-configure opcache --enable-opcache
 RUN docker-php-ext-configure zip --enable-zip
 
 RUN docker-php-ext-install bcmath
@@ -36,11 +32,11 @@ RUN docker-php-ext-install intl
 RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install mcrypt
 RUN docker-php-ext-install mysqli
-RUN docker-php-ext-install opcache
 RUN docker-php-ext-install pcntl
-RUN docker-php-ext-install pdo
-RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install zip
+
+RUN a2enmod rewrite
+RUN a2enmod headers
 
 RUN wget http://static.jonof.id.au/dl/kenutils/pngout-20130221-linux.tar.gz \
     && tar xvf pngout-20130221-linux.tar.gz \
@@ -58,7 +54,6 @@ RUN usermod -G staff www-data
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 775 /var/www/html
 
-COPY config/opcache/opcache.ini $PHP_INI_DIR/conf.d/
 COPY docker-entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
@@ -72,4 +67,4 @@ RUN ls
 
 ENTRYPOINT /entrypoint.sh
 
-CMD php-fpm
+CMD apache2-foreground
