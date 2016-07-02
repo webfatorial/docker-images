@@ -1,4 +1,4 @@
-FROM php:7.0
+FROM php:7.0-apache
 
 MAINTAINER webfatorial <webfatorial@webfatorial.com>
 
