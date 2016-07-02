@@ -12,4 +12,4 @@ export LC_ALL=C.UTF-8
 export LANG=$LOCALE
 export LANGUAGE=$LOCALE
 
-exec php-fpm
+exec apache2-foreground
