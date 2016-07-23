@@ -1,4 +1,4 @@
-FROM webfatorial/nodenode
+FROM webfatorial/node
 
 MAINTAINER webfatorial <webfatorial@webfatorial.com>
 
