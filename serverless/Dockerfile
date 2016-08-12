@@ -20,7 +20,7 @@ RUN gem install --no-rdoc --no-ri breakpoint
 
 RUN npm install -g gulp
 RUN npm install -g bower
-RUN npm install -g serverless
+RUN npm install -g serverless@beta
 
 RUN useradd -ms /bin/bash docker
 
