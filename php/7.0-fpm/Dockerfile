@@ -23,7 +23,7 @@ RUN apt-get -y install tzdata
 RUN rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-configure bcmath --enable-bcmath
-RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr
+RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr/lib64
 RUN docker-php-ext-configure intl --enable-intl
 RUN docker-php-ext-configure mbstring --enable-mbstrin
 RUN docker-php-ext-configure pcntl --enable-pcntl
