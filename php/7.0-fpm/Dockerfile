@@ -69,4 +69,7 @@ RUN ls
 
 ENTRYPOINT /entrypoint.sh
 
+RUN docker-php-ext-configure gd --with-gd --with-png-dir=/usr --with-jpeg-dir=/usr/lib64
+RUN docker-php-ext-install gd
+
 CMD php-fpm
