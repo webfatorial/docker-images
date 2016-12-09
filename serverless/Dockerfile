@@ -26,4 +26,5 @@ RUN useradd -ms /bin/bash docker
 
 USER docker
 
+EXPOSE 3000
 EXPOSE 35729
