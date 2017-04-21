@@ -13,6 +13,7 @@ RUN apt-get -y install libjpeg62-turbo-dev
 RUN apt-get -y install libjpeg-dev
 RUN apt-get -y install libpq-dev
 RUN apt-get -y install libpng12-dev
+RUN apt-get -y install libxml2-dev
 RUN apt-get -y install locales
 RUN apt-get -y install pngquant
 RUN apt-get -y install tzdata
