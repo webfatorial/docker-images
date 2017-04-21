@@ -11,5 +11,6 @@ locale-gen
 export LC_ALL=C.UTF-8
 export LANG=$LOCALE
 export LANGUAGE=$LOCALE
+chown -R www-data:www-data .
 
 exec apache2-foreground
