@@ -40,6 +40,7 @@ RUN docker-php-ext-install opcache
 RUN docker-php-ext-install pcntl
 RUN docker-php-ext-install pdo
 RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install soap
 RUN docker-php-ext-install zip
 
 RUN wget http://static.jonof.id.au/dl/kenutils/pngout-20130221-linux.tar.gz \
