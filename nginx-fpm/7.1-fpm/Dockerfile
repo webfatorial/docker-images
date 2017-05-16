@@ -41,6 +41,7 @@ RUN cp /usr/share/zoneinfo/UTC /etc/localtime && \
 # The following should be set or overwritten when the Docker container runs (ECS Task definition).
 # These are used by WordPress.
 
+ENV NGINX_VHOST='0'
 ENV DB_HOST='localhost'
 ENV DB_USER='root'
 ENV DB_PASSWORD='root'
