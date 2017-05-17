@@ -42,6 +42,7 @@ RUN cp /usr/share/zoneinfo/UTC /etc/localtime && \
 # These are used by WordPress.
 
 ENV NGINX_VHOST='0'
+
 ENV DB_HOST='localhost'
 ENV DB_USER='root'
 ENV DB_PASSWORD='root'
