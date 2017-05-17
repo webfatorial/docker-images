@@ -2,6 +2,7 @@ FROM richarvey/nginx-php-fpm
 
 MAINTAINER webfatorial <webfatorial@webfatorial.com>
 
+COPY scripts/start.sh /
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 COPY conf/nginx-site.conf /etc/nginx/sites-available/default.conf
 COPY conf/nginx-site-ssl.conf /etc/nginx/sites-available/default-ssl.conf
