@@ -15,7 +15,6 @@ COPY errors/ /var/www/errors
 RUN apk --update --repository http://dl-3.alpinelinux.org/alpine/edge/main add \
   libwebp-dev \
   libxml2 \
-  pngquant \
   tzdata \
   unzip --repository http://nl.alpinelinux.org/alpine/edge/testing/
 
