@@ -127,6 +127,11 @@ if [ ! -z "$PHP_UPLOAD_MAX_FILESIZE" ]; then
  sed -i "s/upload_max_filesize = 100M/upload_max_filesize= ${PHP_UPLOAD_MAX_FILESIZE}M/g" /usr/local/etc/php/conf.d/docker-vars.ini
 fi
 
+# Increase the max_input_vars
+if [ ! -z "$PHP_MAX_INPUT_VARS" ]; then
+ sed -i "s/max_input_vars = 10000/max_input_vars= ${PHP_UPLOAD_MAX_FILESIZE}/g" /usr/local/etc/php/conf.d/docker-vars.ini
+fi
+
 if [ ! -z "$PUID" ]; then
   if [ -z "$PGID" ]; then
     PGID=${PUID}

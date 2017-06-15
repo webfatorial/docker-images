@@ -9,6 +9,8 @@ COPY conf/nginx.conf /etc/nginx/nginx.conf
 COPY conf/nginx-site.conf /etc/nginx/sites-available/default.conf
 COPY conf/nginx-site-ssl.conf /etc/nginx/sites-available/default-ssl.conf
 
+COPY errors/ /var/www/errors
+
 # Install packages
 RUN apk --update --repository http://dl-3.alpinelinux.org/alpine/edge/main add \
   libwebp-dev \
@@ -36,6 +38,8 @@ RUN ln -s /etc/php7 /etc/php && \
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     chmod +x wp-cli.phar && \
     mv wp-cli.phar /usr/local/bin/wp
+
+RUN echo "max_input_vars = 10000"  >> ${php_vars}
 
 # Timezone
 RUN cp /usr/share/zoneinfo/UTC /etc/localtime && \
