@@ -39,6 +39,7 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     mv wp-cli.phar /usr/local/bin/wp
 
 RUN echo "max_input_vars = 10000"  >> ${php_vars}
+RUN echo "max_execution_time = 600"  >> ${php_vars}
 
 # Timezone
 RUN cp /usr/share/zoneinfo/UTC /etc/localtime && \

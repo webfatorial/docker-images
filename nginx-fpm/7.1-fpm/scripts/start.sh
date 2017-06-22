@@ -129,7 +129,12 @@ fi
 
 # Increase the max_input_vars
 if [ ! -z "$PHP_MAX_INPUT_VARS" ]; then
- sed -i "s/max_input_vars = 10000/max_input_vars= ${PHP_UPLOAD_MAX_FILESIZE}/g" /usr/local/etc/php/conf.d/docker-vars.ini
+ sed -i "s/max_input_vars = 10000/max_input_vars= ${PHP_MAX_INPUT_VARS}/g" /usr/local/etc/php/conf.d/docker-vars.ini
+fi
+
+# Increase the max_input_vars
+if [ ! -z "$PHP_MAX_EXECUTION_TIME" ]; then
+ sed -i "s/max_execution_time = 600/max_execution_time= ${PHP_MAX_EXECUTION_TIME}/g" /usr/local/etc/php/conf.d/docker-vars.ini
 fi
 
 if [ ! -z "$PUID" ]; then
