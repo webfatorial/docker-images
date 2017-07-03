@@ -58,6 +58,14 @@ if [ ! -d "/var/www/html/.git" ]; then
    ${GIT_COMMAND} /var/www/html || exit 1
    chown -Rf nginx.nginx /var/www/html
  fi
+else
+  if [ ! -z "$GIT_BRANCH" ]; then
+    git checkout $GIT_BRANCH
+    git fetch origin $GIT_BRANCH
+    git reset --hard FETCH_HEAD
+    git clean -df
+    chown -Rf nginx.nginx /var/www/html
+  fi
 fi
 
 # Try auto install for composer
