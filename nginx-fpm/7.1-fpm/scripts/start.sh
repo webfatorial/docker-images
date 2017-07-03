@@ -60,10 +60,10 @@ if [ ! -d "/var/www/html/.git" ]; then
  fi
 else
   if [ ! -z "$GIT_BRANCH" ]; then
-    git checkout $GIT_BRANCH
-    git fetch origin $GIT_BRANCH
+    git checkout ${GIT_BRANCH}
+    git fetch origin ${GIT_BRANCH}
     git reset --hard FETCH_HEAD
-    git pull origin $GIT_BRANCH
+    git pull origin ${GIT_BRANCH}
     git clean -df
     chown -Rf nginx.nginx /var/www/html
   fi
