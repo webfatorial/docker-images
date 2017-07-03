@@ -63,6 +63,7 @@ else
     git checkout $GIT_BRANCH
     git fetch origin $GIT_BRANCH
     git reset --hard FETCH_HEAD
+    git pull origin $GIT_BRANCH
     git clean -df
     chown -Rf nginx.nginx /var/www/html
   fi
