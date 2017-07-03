@@ -56,7 +56,6 @@ if [ ! -d "/var/www/html/.git" ]; then
     fi
    fi
    ${GIT_COMMAND} /var/www/html || exit 1
-   chown -Rf nginx.nginx /var/www/html
  fi
 else
   if [ ! -z "$GIT_BRANCH" ]; then
@@ -65,7 +64,6 @@ else
     git reset --hard FETCH_HEAD
     git pull origin ${GIT_BRANCH}
     git clean -df
-    chown -Rf nginx.nginx /var/www/html
   fi
 fi
 
