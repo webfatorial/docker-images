@@ -59,11 +59,11 @@ if [ ! -d "/var/www/html/.git" ]; then
  fi
 else
   if [ ! -z "$GIT_BRANCH" ]; then
-    git checkout ${GIT_BRANCH}
-    git fetch origin ${GIT_BRANCH}
-    git reset --hard FETCH_HEAD
-    git pull origin ${GIT_BRANCH}
-    git clean -df
+    # git checkout ${GIT_BRANCH}
+    # git fetch origin ${GIT_BRANCH}
+    # git reset --hard FETCH_HEAD
+    # git pull origin ${GIT_BRANCH}
+    # git clean -df
   fi
 fi
 
@@ -153,7 +153,7 @@ if [ ! -z "$PUID" ]; then
   adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G nginx -u ${PUID} nginx
 else
   # Always chown webroot for better mounting
-  chown -Rf nginx.nginx /var/www/html
+  # chown -Rf nginx.nginx /var/www/html
 fi
 
 # Run custom scripts
