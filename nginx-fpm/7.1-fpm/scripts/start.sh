@@ -61,11 +61,8 @@ if [ ! -d "/var/www/html/.git" ]; then
 else
   if [ ! -z "$GIT_BRANCH" ]; then
     rm -rf /var/www/html/.git/index.lock
-    # git -C /var/www/html checkout ${GIT_BRANCH}
-    # git -C /var/www/html fetch origin ${GIT_BRANCH}
-    # git -C /var/www/html reset --hard FETCH_HEAD
-    git -C /var/www/html pull origin ${GIT_BRANCH}
-    # git -C /var/www/html clean -df
+    git -C /var/www/html fetch origin ${GIT_BRANCH}
+    git -C /var/www/html reset --hard FETCH_HEAD
   fi
 fi
 
@@ -153,9 +150,9 @@ if [ ! -z "$PUID" ]; then
   deluser nginx
   addgroup -g ${PGID} nginx
   adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G nginx -u ${PUID} nginx
-# else
+else
   # Always chown webroot for better mounting
-  # chown -Rf nginx.nginx /var/www/html
+  chown -Rf nginx.nginx /var/www/html
 fi
 
 # Run custom scripts
