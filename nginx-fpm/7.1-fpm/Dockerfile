@@ -45,10 +45,9 @@ RUN echo "opcache.enable_cli = 0"  >> ${php_vars}
 RUN echo "opcache.memory_consumption = 64"  >> ${php_vars}
 RUN echo "opcache.interned_strings_buffer = 16"  >> ${php_vars}
 RUN echo "opcache.max_accelerated_files = 100000"  >> ${php_vars}
-RUN echo "opcache.revalidate_freq = 0"  >> ${php_vars}
 RUN echo "opcache.fast_shutdown = 1"  >> ${php_vars}
 RUN echo "opcache.revalidate_path = 0"  >> ${php_vars}
-RUN echo "opcache.validate_timestamps = 2"  >> ${php_vars}
+RUN echo "opcache.validate_timestamps = 0"  >> ${php_vars}
 RUN echo "opcache.file_cache = /var/www/.opcache"  >> ${php_vars}
 
 # Timezone
