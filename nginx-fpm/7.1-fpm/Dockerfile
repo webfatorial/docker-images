@@ -42,14 +42,11 @@ RUN echo "max_input_vars = 10000"  >> ${php_vars}
 RUN echo "max_execution_time = 600"  >> ${php_vars}
 RUN echo "opcache.enable = 0"  >> ${php_vars}
 RUN echo "opcache.enable_cli = 0"  >> ${php_vars}
-RUN echo "opcache.memory_consumption = 256"  >> ${php_vars}
+RUN echo "opcache.memory_consumption = 128"  >> ${php_vars}
 RUN echo "opcache.max_accelerated_files = 100000"  >> ${php_vars}
 RUN echo "opcache.revalidate_freq = 31104000"  >> ${php_vars}
-RUN echo "opcache.validate_timestamps = 2"  >> ${php_vars}
-RUN echo "opcache.revalidate_path = 1"  >> ${php_vars}
+RUN echo "opcache.validate_timestamps = 1"  >> ${php_vars}
 RUN echo "opcache.enable_file_override = 1"  >> ${php_vars}
-RUN echo "opcache.fast_shutdown = 1"  >> ${php_vars}
-RUN echo "opcache.max_file_size = 2097152"  >> ${php_vars}
 RUN echo "opcache.file_cache = /var/www/.opcache"  >> ${php_vars}
 
 # Timezone
