@@ -21,8 +21,10 @@ RUN gem install --no-rdoc --no-ri breakpoint
 RUN npm install -g gulp
 RUN npm install -g bower
 
-RUN useradd -ms /bin/bash docker
+# RUN useradd -ms /bin/bash docker
 
-USER docker
+# USER docker
+
+USER node
 
 EXPOSE 35729
