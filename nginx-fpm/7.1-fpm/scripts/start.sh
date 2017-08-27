@@ -162,6 +162,10 @@ if [[ "$PHP_OPCACHE" == "1" ]] ; then
  sed -i "s/opcache.enable = 0/opcache.enable = 1/g" /usr/local/etc/php/conf.d/docker-vars.ini
  sed -i "s/opcache.enable_cli = 0/opcache.enable_cli = 1/g" /usr/local/etc/php/conf.d/docker-vars.ini
 
+  if [ ! -z "$PHP_OPCACHE_MEMORY" ]; then
+    sed -i "s/opcache.memory_consumption = 1024/opcache.memory_consumption = ${PHP_OPCACHE_MEMORY}/g" /usr/local/etc/php/conf.d/docker-vars.ini
+  fi
+
  # OPCache cache folder
  mkdir -p -m 0775 /var/www/.opcache
  chown -R nginx.nginx /var/www/.opcache
