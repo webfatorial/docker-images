@@ -20,9 +20,14 @@ RUN apk --update --repository http://dl-3.alpinelinux.org/alpine/edge/main add \
 
 RUN docker-php-ext-configure bcmath --enable-bcmath
 RUN docker-php-ext-configure intl --enable-intl
-RUN docker-php-ext-configure mbstring --enable-mbstrin
 RUN docker-php-ext-configure sockets --enable-bcmath
 RUN docker-php-ext-configure zip --enable-zip
+
+RUN docker-php-ext-configure gd --with-gd --with-png-dir=/usr --with-jpeg-dir=/usr/lib64
+RUN docker-php-ext-configure mbstring --enable-mbstrin
+RUN docker-php-ext-install gd
+RUN docker-php-ext-install mbstring
+
 
 RUN docker-php-source delete
 
