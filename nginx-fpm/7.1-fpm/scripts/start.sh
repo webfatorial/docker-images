@@ -130,7 +130,7 @@ fi
 
 # Increase the upload_max_filesize
 if [ ! -z "$PHP_UPLOAD_MAX_FILESIZE" ]; then
- sed -i "s/upload_max_filesize = 100M/upload_max_filesize= ${PHP_UPLOAD_MAX_FILESIZE}M/g" /usr/local/etc/php/conf.d/docker-vars.ini
+ sed -i "s/upload_max_filesize = 100M/upload_max_filesize = ${PHP_UPLOAD_MAX_FILESIZE}M/g" /usr/local/etc/php/conf.d/docker-vars.ini
 fi
 
 # Increase the max_input_vars
